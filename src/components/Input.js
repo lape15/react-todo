@@ -1,7 +1,11 @@
 /** @jsx jsx */
 import React, { useState } from "react";
-import { css, jsx } from "@emotion/core";
+import { css, jsx, keyframes } from "@emotion/core";
 
+const spin = keyframes`
+        to{ transform : rotateYs(180deg);
+        }
+`;
 const Search = ({ UpdateTodos }) => {
   const [todo, setTodo] = useState("");
 
@@ -16,9 +20,10 @@ const Search = ({ UpdateTodos }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (!todo) return;
-    console.log(todo);
+    // console.log(todo);
     addTodo(todo);
     setTodo("");
+    resetTodo();
   };
 
   const addTodo = text => {
@@ -40,6 +45,16 @@ const Search = ({ UpdateTodos }) => {
         box-shadow: 2px 2px 2px #888888;
       `}
     >
+      <h5
+        css={css`
+          animation: 1s ${spin} linear linear;
+          color: #f2b9b3;
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          padding: 2px;
+        `}
+      >
+        Hello Todo
+      </h5>
       <form
         onSubmit={handleSubmit}
         css={css`
@@ -71,7 +86,18 @@ const Search = ({ UpdateTodos }) => {
           />
         </label>
 
-        <button>Add todo</button>
+        <button
+          css={css`
+            color: white;
+            background-color: salmon;
+            width: 80px;
+            border-radius: 36px;
+            border: none;
+            padding: 5px;
+          `}
+        >
+          Add todo
+        </button>
       </form>
     </div>
   );
