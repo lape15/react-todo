@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { css, jsx } from "@emotion/core";
 
-const Search = props => {
+const Search = ({ UpdateTodos }) => {
   const [todo, setTodo] = useState("");
 
   const handleChange = e => {
@@ -12,11 +12,18 @@ const Search = props => {
   const resetTodo = () => {
     setTodo("");
   };
-  const addTodo = todo => {
-    if (todo !== "");
-    props.todos(todo);
-    // props.newTodo(todo);
-    resetTodo();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!todo) return;
+    console.log(todo);
+    addTodo(todo);
+    setTodo("");
+  };
+
+  const addTodo = text => {
+    // passing data(text) to the parent(App)
+    UpdateTodos(text);
   };
 
   return (
@@ -34,7 +41,7 @@ const Search = props => {
       `}
     >
       <form
-        onSubmit={e => e.preventDefault()}
+        onSubmit={handleSubmit}
         css={css`
           padding: 2%;
           color: #fff;
@@ -64,7 +71,7 @@ const Search = props => {
           />
         </label>
 
-        <button onClick={addTodo}>Add todo</button>
+        <button>Add todo</button>
       </form>
     </div>
   );

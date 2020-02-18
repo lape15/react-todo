@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import Header from "../src/components/layouts/Header";
 import Search from "../src/components/Input";
-import Item from "../src/components/Items";
-const App = props => {
+import Item from "../src/components/Item";
+const App = () => {
   const [items, setItems] = useState(["Sleep"]);
   console.log(items);
 
-  const newTodo = todo => {
-    const oldTodo = [...items, todo];
-    setItems(oldTodo);
-    // return items;
+  // receives data from child(Search)
+  const UpdateTodos = todo => {
+    const UpdatedTodos = [...items, todo];
+    setItems(UpdatedTodos);
   };
 
   return (
     <div className="App">
       <Header />
-      <Search todos={newTodo} />
+      <Search UpdateTodos={UpdateTodos} />
       {items.map((item, index) => (
         <Item item={item} key={index} />
       ))}

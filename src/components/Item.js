@@ -1,8 +1,8 @@
 import React from "react";
 
-const Items = ({ item }) => {
+const Item = ({ item }) => {
   console.log(item);
   return <div>{item}</div>;
 };
 
-export default Items;
+export default Item;
