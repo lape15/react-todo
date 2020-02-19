@@ -38,7 +38,30 @@ const Search = ({ UpdateTodos }) => {
         display: block;
         margin: 20px auto;
         width: 30%;
-        background-image: linear-gradient(to right, #93f2e8, #67d6cc);
+        background: #e2e2e2;
+        background: -moz-linear-gradient(
+          top,
+          #e2e2e2 0%,
+          #dbdbdb 50%,
+          #d1d1d1 51%,
+          #fefefe 100%
+        );
+        background: -webkit-linear-gradient(
+          top,
+          #e2e2e2 0%,
+          #dbdbdb 50%,
+          #d1d1d1 51%,
+          #fefefe 100%
+        );
+        background: linear-gradient(
+          to bottom,
+          #e2e2e2 0%,
+          #dbdbdb 50%,
+          #d1d1d1 51%,
+          #fefefe 100%
+        );
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=0 );
+
         padding: 4%;
         /* border: 2px solid red; */
         text-align: center;
@@ -51,7 +74,6 @@ const Search = ({ UpdateTodos }) => {
           color: #f2b9b3;
           font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
           padding: 2px;
-          border: 1px solid black;
         `}
       >
         Hello Todo
@@ -79,10 +101,13 @@ const Search = ({ UpdateTodos }) => {
             css={css`
               padding: 5px;
               font-size: 14px;
-              color: #fff;
+              color: black;
+              text-align: center;
               font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-              background-image: linear-gradient(to right, #40caed, aqua);
+              /* background-image: linear-gradient(to right, #40caed, aqua); */
               margin: 5px;
+              border: none;
+              border-radius: 100%;
             `}
           />
         </label>
@@ -90,7 +115,7 @@ const Search = ({ UpdateTodos }) => {
         <button
           css={css`
             color: white;
-            background-color: salmon;
+            background-color: black;
             width: 80px;
             border-radius: 36px;
             border: none;

@@ -6,11 +6,27 @@ const Header = () => {
   return (
     <div
       css={css`
-        background-image: linear-gradient(
-          to right,
-          rgba(255, 0, 0, 0),
-          rgba(255, 0, 0, 1)
+        background: #f2f5f6;
+        background: -moz-linear-gradient(
+          top,
+          #f2f5f6 0%,
+          #e3eaed 37%,
+          #c8d7dc 100%
         );
+        background: -webkit-linear-gradient(
+          top,
+          #f2f5f6 0%,
+          #e3eaed 37%,
+          #c8d7dc 100%
+        );
+        background: linear-gradient(
+          to bottom,
+          #f2f5f6 0%,
+          #e3eaed 37%,
+          #c8d7dc 100%
+        );
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=0 );
+
         /* border: 2px solid red; */
         width: 100%;
         /* max-width: 50%; */
