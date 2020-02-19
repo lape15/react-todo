@@ -13,6 +13,7 @@ const App = () => {
   // receives data from child(Search)
   const UpdateTodos = todo => {
     const newTodo = {
+      id: items.length + 1,
       task: todo,
       completed: false,
       createdAt: Date.now()
@@ -30,23 +31,28 @@ const App = () => {
   };
 
   const completedTodo = index => {
-    const incompletedTodo = [...items];
-    incompletedTodo[index] = true;
-    setItems(incompletedTodo);
+    const newList = items.map(list => {
+      if (list.id === index) {
+        list.completed = !list.completed;
+      }
+
+      return list;
+    });
+    setItems(newList);
   };
   return (
     <div className="App">
       <Header />
       <Search UpdateTodos={UpdateTodos} />
       <div
-        css={css`
-          background-color: #dbd9d9;
-          display: flex;
-          flex-flow: row wrap;
-          justify-content: space-around;
-          align-items: center;
-          padding: 2%;
-        `}
+      // css={css`
+      //   background-color: #dbd9d9;
+      //   display: flex;
+      //   flex-flow: row wrap;
+      //   justify-content: space-around;
+      //   align-items: center;
+      //   padding: 2%;
+      // `}
       >
         {items.map((item, index) => (
           <Items

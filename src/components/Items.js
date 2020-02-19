@@ -4,7 +4,12 @@ import { css, jsx } from "@emotion/core";
 
 const Items = ({ item, index, removeTodo, completedTodo }) => {
   //   localStorage.getItem("items");
-  console.log(item);
+  const handleChecked = () => {
+    // console.log(item.id);
+    completedTodo(item.id);
+  };
+
+  // console.log(item);
   return (
     <div
       css={css`
@@ -36,16 +41,15 @@ const Items = ({ item, index, removeTodo, completedTodo }) => {
             /* float: right; */
           `}
         >
-          <button
+          <label htmlFor="">Completed </label>
+          <input
             type="checkbox"
             css={css`
               border: none;
               border-radius: 30px;
             `}
-            onClick={() => completedTodo(index)}
-          >
-            Completed{" "}
-          </button>
+            onChange={handleChecked}
+          />
         </span>
 
         <span
