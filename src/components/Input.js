@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { css, jsx, keyframes } from "@emotion/core";
 
 const spin = keyframes`
-        to{ transform : rotateYs(180deg);
+        to { transform : rotateY(180deg);
         }
 `;
 const Search = ({ UpdateTodos }) => {
@@ -47,10 +47,11 @@ const Search = ({ UpdateTodos }) => {
     >
       <h5
         css={css`
-          animation: 1s ${spin} linear linear;
+          animation: 3s ${spin} infinite;
           color: #f2b9b3;
           font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
           padding: 2px;
+          border: 1px solid black;
         `}
       >
         Hello Todo

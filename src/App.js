@@ -12,16 +12,28 @@ const App = () => {
 
   // receives data from child(Search)
   const UpdateTodos = todo => {
-    localStorage.setItem("items", JSON.stringify([...itemState, todo]));
-    setItems([...itemState, todo]);
+    const newTodo = {
+      task: todo,
+      completed: false,
+      createdAt: Date.now()
+    };
+    localStorage.setItem("items", JSON.stringify([...itemState, newTodo]));
+    setItems([...itemState, newTodo]);
   };
 
   const removeTodo = index => {
     const todoArr = [...items];
     todoArr.splice(index, 1);
+    alert("Are you sure you wanna do this?");
+    localStorage.setItem("items", JSON.stringify(todoArr));
     setItems(todoArr);
   };
 
+  const completedTodo = index => {
+    const incompletedTodo = [...items];
+    incompletedTodo[index] = true;
+    setItems(incompletedTodo);
+  };
   return (
     <div className="App">
       <Header />
@@ -42,6 +54,7 @@ const App = () => {
             key={index}
             index={index}
             removeTodo={removeTodo}
+            completedTodo={completedTodo}
           />
         ))}
       </div>
