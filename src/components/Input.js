@@ -20,7 +20,6 @@ const Search = ({ UpdateTodos }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (!todo) return;
-    // console.log(todo);
     addTodo(todo);
     setTodo("");
     resetTodo();
@@ -39,6 +38,11 @@ const Search = ({ UpdateTodos }) => {
         margin: 20px auto;
         width: 30%;
         background: #e2e2e2;
+
+        @media (min-width: 300px) {
+          width: 200px;
+          margin-bottom: 10px;
+        }
         background: -moz-linear-gradient(
           top,
           #e2e2e2 0%,
@@ -104,10 +108,12 @@ const Search = ({ UpdateTodos }) => {
               color: black;
               text-align: center;
               font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-              /* background-image: linear-gradient(to right, #40caed, aqua); */
               margin: 5px;
               border: none;
-              border-radius: 100%;
+              /* border-radius: 100%; */
+              @media (min-width: 300px) {
+                width: 80px;
+              }
             `}
           />
         </label>
@@ -120,6 +126,10 @@ const Search = ({ UpdateTodos }) => {
             border-radius: 36px;
             border: none;
             padding: 5px;
+            @media (min-width: 300px) {
+              width: 101px;
+              /* border: 2px solid blue; */
+            }
           `}
         >
           Add todo

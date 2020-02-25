@@ -44,7 +44,7 @@ const App = () => {
     localStorage.setItem("items", JSON.stringify(newList));
     setItems(newList);
   };
-  console.log(items.length);
+  // console.log(items.length);
   return (
     <div className="App">
       <Header />

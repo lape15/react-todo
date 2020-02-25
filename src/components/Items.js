@@ -5,7 +5,6 @@ import { css, jsx } from "@emotion/core";
 const Items = ({ item, index, removeTodo, completedTodo }) => {
   //   localStorage.getItem("items");
   const handleChecked = () => {
-    // console.log(item.id);
     completedTodo(item.id);
     console.log(index, item.id);
   };
@@ -30,7 +29,6 @@ const Items = ({ item, index, removeTodo, completedTodo }) => {
         css={css`
           color: black;
           margin-right: 20px;
-          /* float: right; */
         `}
       >
         <label htmlFor="">Completed </label>
@@ -42,6 +40,7 @@ const Items = ({ item, index, removeTodo, completedTodo }) => {
           `}
           onChange={handleChecked}
           disabled={item.completed ? true : false}
+          checked={item.completed ? true : false}
         />
       </span>
 
