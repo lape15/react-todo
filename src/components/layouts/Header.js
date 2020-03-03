@@ -1,12 +1,15 @@
 /** @jsx jsx */
-import React from "react";
+import React, { useContext } from "react";
 import { css, jsx } from "@emotion/core";
+import { TodoContext } from "../../context/TodoContext";
 
 const Header = () => {
+  const { todos } = useContext(TodoContext);
   return (
     <div
       css={css`
         background: #f2f5f6;
+        text-align: center;
         background: -moz-linear-gradient(
           top,
           #f2f5f6 0%,
@@ -45,6 +48,15 @@ const Header = () => {
       >
         TODO LIST
       </h6>
+      <p
+        className="count"
+        css={css`
+          margin-top: 30px;
+          color: red;
+        `}
+      >
+        You currently have {todos.length} todos to do!
+      </p>
     </div>
   );
 };

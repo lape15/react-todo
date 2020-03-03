@@ -1,14 +1,16 @@
 /** @jsx jsx */
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { css, jsx, keyframes } from "@emotion/core";
-
+import { TodoContext } from "../context/TodoContext";
+import moment from "moment";
 const spin = keyframes`
         to { transform : rotateY(180deg);
         }
 `;
-const Search = ({ UpdateTodos }) => {
+const Search = () => {
   const [todo, setTodo] = useState("");
-
+  const { dispatch } = useContext(TodoContext);
+  // console.log(dispatch);
   const handleChange = e => {
     setTodo(e.target.value);
   };
@@ -27,7 +29,16 @@ const Search = ({ UpdateTodos }) => {
 
   const addTodo = text => {
     // passing data(text) to the parent(App)
-    UpdateTodos(text);
+    dispatch({
+      type: "ADD_TODO",
+      todo: {
+        task: text,
+        completed: false,
+        createdAt: moment(Date.now())
+          .add(24, "hours")
+          .format("LLL")
+      }
+    });
   };
 
   return (
@@ -36,11 +47,12 @@ const Search = ({ UpdateTodos }) => {
         /* margin: 0 auto; */
         display: block;
         margin: 20px auto;
-        width: 30%;
+        width: 50%;
         background: #e2e2e2;
 
+        text-align: center;
         @media (min-width: 300px) {
-          width: 200px;
+          width: 400px;
           margin-bottom: 10px;
         }
         background: -moz-linear-gradient(
@@ -109,10 +121,16 @@ const Search = ({ UpdateTodos }) => {
               text-align: center;
               font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
               margin: 5px;
-              border: none;
+              /* height: 120px; */
+              width: 40vw;
+              /* border: none; */
+
               /* border-radius: 100%; */
               @media (min-width: 300px) {
-                width: 80px;
+                width: 150px;
+                padding: 10px;
+                box-sizing: border-box;
+                border: none;
               }
             `}
           />
