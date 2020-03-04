@@ -28,13 +28,14 @@ const TodoDetails = ({ item, index, completeTodo, removeTodo }) => {
       </span>
 
       <span
+        className="task"
         css={css`
           margin: 0 0 0 4rem;
           color: white;
           font-weight: 500;
         `}
       >
-        {item.task.task}
+        {item.task}
       </span>
       <span
         css={css`

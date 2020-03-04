@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { useState } from "react";
+import React from "react";
 import { css, jsx } from "@emotion/core";
 import Header from "../src/components/layouts/Header";
 import Search from "../src/components/Input";

@@ -23,21 +23,13 @@ const Search = () => {
 
     dispatch({
       type: "ADD_TODO",
-      todo: {
-        task: todo,
-        completed: false,
-        createdAt: moment(Date.now())
-          .add(24, "hours")
-          .format("LLL")
-      }
+      todo
     });
 
     console.log(todo);
 
     setTodo("");
-
   };
-
 
   return (
     <div
