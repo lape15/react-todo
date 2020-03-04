@@ -39,7 +39,7 @@ const Items = () => {
             completeTodo={() =>
               dispatch({ type: "COMPLETED_TODO", index: item.id })
             }
-            removeTodo={() => dispatch({ type: "REMOVE_BOOK", id: item.id })}
+            removeTodo={() => dispatch({ type: "REMOVE_TODO", id: item.id })}
           />
         );
       })}
