@@ -15,31 +15,29 @@ const Search = () => {
     setTodo(e.target.value);
   };
 
-  const resetTodo = () => {
-    setTodo("");
-  };
-
   const handleSubmit = e => {
     e.preventDefault();
     if (!todo) return;
-    addTodo(todo);
-    setTodo("");
-    resetTodo();
-  };
 
-  const addTodo = text => {
-    // passing data(text) to the parent(App)
+    console.log(todo.task);
+
     dispatch({
       type: "ADD_TODO",
       todo: {
-        task: text,
+        task: todo,
         completed: false,
         createdAt: moment(Date.now())
           .add(24, "hours")
           .format("LLL")
       }
     });
+
+    console.log(todo);
+
+    setTodo("");
+
   };
+
 
   return (
     <div

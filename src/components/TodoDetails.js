@@ -34,7 +34,7 @@ const TodoDetails = ({ item, index, completeTodo, removeTodo }) => {
           font-weight: 500;
         `}
       >
-        {item.task}
+        {item.task.task}
       </span>
       <span
         css={css`

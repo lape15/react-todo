@@ -1,12 +1,13 @@
 import moment from "moment";
 export const todoReducer = (state, action) => {
+  console.log(action)
   switch (action.type) {
     case "ADD_TODO":
       return [
         ...state,
         {
           id: state.length + 1,
-          task: state.todo,
+          task: action.todo,
           completed: false,
           createdAt: moment(Date.now())
             .add(24, "hours")
